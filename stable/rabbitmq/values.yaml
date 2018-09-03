@@ -82,6 +82,28 @@ rabbitmq:
       ## enable guest user
       loopback_users.guest = false
 
+  definitions:
+    ## The definition file allows allows you to initialize rabbit with
+    ## additional resources like users, virtualhosts, policies or queues.
+    ## If enabled rabbit will ignore other users or virtualhost provided in
+    ## this yaml. See http://www.rabbitmq.com/management.html#load-definitions
+    enabled: false
+    filename: definition.json
+    data: |-
+        {
+        "bindings": [],
+        "exchanges": [],
+        "global_parameters": [],
+        "parameters": [],
+        "permissions": [],
+        "policies": [],
+        "queues": [],
+        "rabbit_version": "3.7.7",
+        "topic_permissions": [],
+        "users": [],
+        "vhosts": []
+        }
+
 ## Kubernetes service type
 serviceType: ClusterIP
 
